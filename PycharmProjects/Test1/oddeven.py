@@ -1,4 +1,4 @@
-num=int(raw_input("Enter Your number:   "))
+num=int(raw_input('Enter Your number:   '))
 if num%2 == 0:
     print 'number is even  '+str(num)
 else:
