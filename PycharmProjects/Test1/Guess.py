@@ -1,22 +1,19 @@
-import Random
+import random
 print 'Welcome TO Play Guessing Game'
-spy_name1 = raw_input('Player 1, Enter your Name: ')
-spy_name2 = raw_input('Player 2, Enter your Name: ')
-
+spy_name = raw_input('Enter your Name: ')
+num = random.randint(1,9)
 choice = 'Y'
 while(choice != 'N'):
-    a = str(raw_input(spy_name1 + " " + 'enter Your Number From 1 to 9   '))
-    b = str(raw_input(spy_name2 + " " + 'enter Your choice From Stone, Paper or Scissor:   '))
+    a = int(raw_input(str(spy_name) + " " + 'enter Your Number From 1 to 9:   '))
 
-    if(str(a) == 'Stone' and str(b) == 'Scissor'):
-        print str(spy_name1) + " " + 'wins'
-    elif str(a) == 'Paper'and str(b) == 'Stone':
-        print str(spy_name1) + " " + 'wins'
-    elif (str(a) == 'Scissor'and str(b) == 'Paper'):
-        print str(spy_name1) + " " + 'wins'
-    elif (str(a) == str(b)):
-        print 'Draw/Tie Game'
+    if(a<num and a>0 and a<10):
+        print str(spy_name) +" "+'Your Guess is Low:    '+str(a)
+    elif(a>num and a>0 and a<10):
+        print str(spy_name) +" "+'Your Guess is High:   '+str(a)
+    elif(a== num and a>0 and a<10):
+        print str(spy_name) +" "+'Your Guess is Perfect:    '+str(a)
     else:
-        print 'Hahahaha'+ str(spy_name2) + " " + 'wins'
-    choice =raw_input( 'Do You want to play More? Y or N:   ')
+        print 'Wrong Input Given:   '+str(a)
+    print 'The original Number was: ' +str(num)
+    choice =raw_input( 'Do You want to Guess More? Y or N:   ')
 
