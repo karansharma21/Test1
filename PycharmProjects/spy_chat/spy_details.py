@@ -3,6 +3,6 @@ spy = {
     'name' : 'Karan',
     'salutation' : 'Mr.',
     'age' : 21,
-    'rating' : 4.8,
+    'rating' : 9.8,
     'is_online' : True
 }
