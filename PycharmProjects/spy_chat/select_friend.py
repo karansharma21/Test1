@@ -1,5 +1,5 @@
 from globals import friends
-
+from termcolor import cprint
 
 def select_friend():
     # print the list of all friends.
@@ -12,5 +12,5 @@ def select_friend():
     if user_input <= counter:
         return user_input-1
     else:
-        print "Invalid choice. Try again"
+        cprint ("Invalid choice. Try again",'red')
         return 1

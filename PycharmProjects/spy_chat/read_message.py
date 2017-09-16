@@ -16,16 +16,16 @@ def read_message():
         # save the data
         new_chat = {
             "message": secret_text,
-                "time": time.strftime("%I:%M:%S"),
-                "day": datetime.date.today().strftime("%d"),
-                "month": datetime.date.today().strftime("%B"),
-                "year": datetime.date.today().strftime("%Y"),
-                "sent_by_me": True
+            "time": time.strftime("%I:%M:%S"),
+            "day": datetime.date.today().strftime("%d"),
+            "month": datetime.date.today().strftime("%B"),
+            "year": datetime.date.today().strftime("%Y"),
+            "sent_by_me": True
 
         }
 
 
-        cprint (friends[sender]['name']+ " " + "sends you" +" " + secret_text,'red',attrs=['dark','underline','bold'])
-        cprint ("Your secret message has been saved too.",'red',attrs=['dark','underline','bold'])
+        cprint (friends[sender]['name']+ " " + "sends you" +" " + secret_text,'blue',attrs=['dark','underline','bold'])
+        cprint ("Your secret message has been saved too.",'cyan',attrs=['dark','underline','bold'])
     else:
-        print "Wrong image name/format entered"
+        cprint ("Wrong image name/format entered",'red')

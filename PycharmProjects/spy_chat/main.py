@@ -37,9 +37,9 @@ def oldUser():
 
     # check if user exists and login matches password
     if login in users and users[login] == passw:
-        print "\nLogin successful!\n"
+        cprint ("\nLogin successful!\n",'cyan')
     else:
-        print "\nUser doesn't exist or wrong password!\n"
+        cprint ("\nUser doesn't exist or wrong password!\n",'red')
         displayMenu()  #again ask user to login
 
 while stats != "q":
@@ -47,12 +47,13 @@ while stats != "q":
 
     while True:
         spy['name'] = raw_input("Enter your name : ")
+        #regex for valid spy name
         pattern = '^[a-zA-Z\s]+$'
         if (re.match(pattern, spy['name']) != None):
-            print 'Valid name'
+            cprint ('Valid name','magenta')
             break
         else:
-            print "Invalid name. Try alphabet's only."
+            cprint ("Invalid name. Try alphabet's only.",'red')
 
     # check whether spy has input something or not
     if len(spy['name']) > 0:
@@ -79,14 +80,14 @@ while stats != "q":
                         # starting chat application.
                         start_chat(spy['name'], spy['age'], spy['rating'], spy['is_online'])
                     else:
-                        print "rating must be between 0.0 to 10.0"
+                        cprint ("rating must be between 0.0 to 10.0",'red')
                 else:
-                    print "Invalid rating. Try again with correct details."
+                    cprint ("Invalid rating. Try again with correct details.",'red')
             else:
-                print "Age must be between 12 to 50 years"
+                cprint ("Age must be between 12 to 50 years",'red')
         else:
-            print "Invalid age. Try again with correct details."
+            cprint ("Invalid age. Try again with correct details.",'red')
     else:
-        print "Invalid name. Try again with correct details."
+        cprint ("Invalid name. Try again with correct details.",'red')
 else:
-    print "Wrong choice. Try again."
+    cprint ("Wrong choice. Try again.",'red')

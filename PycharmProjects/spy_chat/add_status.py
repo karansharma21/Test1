@@ -1,14 +1,15 @@
 # import statements.
 from globals import STATUS_MESSAGES
+from termcolor import cprint
 
 # updated status message.
 updated_status_message = None
 
 def add_status(current_status_message):
     if current_status_message != None:
-        print 'Your current status message is %s \n' % (current_status_message)
+        cprint ('Your current status message is %s \n' % (current_status_message),'yellow')
     else:
-        print 'You don\'t have any status message currently \n'
+        cprint ('You don\'t have any status message currently \n','magenta')
 
     # Ask user for choosing from older older messages.
     default = raw_input("Do you want to select from the older status (y/n)? ")
@@ -21,9 +22,9 @@ def add_status(current_status_message):
             # adding new status message to the list.
             STATUS_MESSAGES.append(new_status_message)
             updated_status_message = new_status_message
-            print 'Your updated status message is: %s' % (updated_status_message)
+            cprint ('Your updated status message is: %s' % (updated_status_message),'yellow')
         else:
-            print "You did not provided any status message. Try again."
+            cprint ("You did not provided any status message. Try again.",'magenta')
     elif default.upper() == 'Y':
         # counter for serial number of messages.
         item_position = 1
@@ -39,10 +40,10 @@ def add_status(current_status_message):
         # validating users input.
         if len(STATUS_MESSAGES) >= message_selection:
             updated_status_message = STATUS_MESSAGES[message_selection - 1]
-            print 'Your updated status message is: %s' % (updated_status_message)
+            cprint ('Your updated status message is: %s' % (updated_status_message),'yellow')
         else:
-            print "Invalid choice. Try again."
+            cprint ("Invalid choice. Try again.",'magenta')
     else:
-        print 'The option you chose is not valid! Press either y or n.'
+        cprint ('The option you chose is not valid! Press either y or n.','magenta')
 
     return updated_status_message

@@ -15,41 +15,46 @@ def send_message():
 
         # prepare the message
         original_image = raw_input("Provide the name of the image to hide the message : ")
+        #regex for jpeg format original_image only
         pattern_e = '^[a-zA-Z0-9]+\.jpg$'
         if (re.match(pattern_e, original_image) != None):
             output_image = raw_input("Provide the name of the output image  : ")
+            #regex for jpeg format output_image only
             pattern_f = '^[a-zA-Z0-9]+\.jpg$'
             if (re.match(pattern_f, output_image) != None):
                 cprint( "Images name entered successfully", 'magenta')
             else:
-                print "Wrong output_image name/format entered"
+                cprint ("Wrong output_image name/format entered",'red')
                 send_message()
         else:
-            print "Wrong original_image name/format entered"
+            cprint ("Wrong original_image name/format entered",'red')
             send_message()
         while True:
             text = raw_input("Enter your message here : ")
+            #regex for encrypted message
             pattern = '^[a-zA-Z0-9\s]+$'
             if (re.match(pattern, text) != None):
-                print 'Valid message'
+                cprint ('Valid message','magenta')
             else:
                 cprint ('Either empty message or invalid messsage',"red")
                 cprint( 'Again choose the friend from the list:', "cyan")
                 send_message()
+            #checks the length of message from spy
             if len(text) <= 100:
                 break
             else:
+                #a spy is deleted from list of spies if they are speaking too much. (More than 100 words)
                 cprint("Too much info - Your message must be less than 100 words, you are thrown out of the app","red")
                 friends.pop(friend_choice-1)
                 cprint ('Again choose the friend from the list:',"cyan")
                 send_message()
         #average number of words spoken by a spy
         average = len(text.split())
-        print "Average number of words are %d" % (average)
+        cprint ("Average number of words are %d" % (average),'magenta')
         # Encrypt the message
         Steganography.encode(original_image, output_image, text)
         # Successful message
-        print "Your message encrypted successfully."
+        cprint ("Your message encrypted successfully.",'blue')
 
         # converting text into upper case
         new = (text.upper()).split()
@@ -58,9 +63,9 @@ def send_message():
         if "SOS" in new or "SAVE" in new or "HELP" in new or "ACCIDENT" in new or "ALERT" in new:
             # Emergency alert
             # Termcolor and Colorama both libraries happily used.
-            print (colored("!", 'grey', 'on_yellow')),
-            print (colored("!", 'grey', 'on_yellow')),
-            print (colored("!", 'grey', 'on_yellow'))
+            print (colored("!", 'red', 'on_yellow')),
+            print (colored("!", 'red', 'on_yellow')),
+            print (colored("!", 'red', 'on_yellow'))
 
             # help friend by sending a helping message
             print (colored("The friend who sent this message need your help.", 'cyan'))
@@ -87,6 +92,6 @@ def send_message():
         }
         friends[friend_choice]['chats'].append(new_chat)
 
-        print "your secret message is ready."
+        cprint ("your secret message is ready.",'yellow')
     else:
         cprint("You don't have any friends yet","cyan",attrs=['dark', 'underline', 'bold'])

@@ -1,7 +1,6 @@
 # import statements.
 from globals import friends
 from spy_details import spy
-from datetime import date
 import re
 from termcolor import cprint
 
@@ -20,6 +19,7 @@ def add_friend():
 
     while True:
         new_friend['name'] = raw_input("Please add your friend's name: ")
+        #regex for valid friends name
         pattern = '^[a-zA-Z\s]+$'
         if (re.match(pattern, new_friend['name']) != None):
             print 'Valid name'
@@ -43,7 +43,7 @@ def add_friend():
                 # validate spy rating
                 rating_pattern = '^[0-9]{1,2}[.][0-9]{1}$'
                 if (re.match(rating_pattern, new_friend['rating']) != None):
-                    # valid rating
+                    # valid rating i.e
                     new_friend['rating'] = float(new_friend['rating'])
                     if (new_friend['rating'] >= spy['rating'] and new_friend['rating'] <= 10.0):
                         new_friend['is_online'] = True
@@ -55,17 +55,17 @@ def add_friend():
                         # returning total no of friends.
                         return len(friends)
                     else:
-                        print "friend rating must be greater than user rating"
+                        cprint ("friend rating must be greater than user rating",'red')
                         add_friend()
                 else:
-                    print "Invalid rating. Try again with correct details."
+                    cprint ("Invalid rating. Try again with correct details.",'red')
                     add_friend()
             else:
-                print "Age must be between 12 to 50 years"
+                cprint ("Age must be between 12 to 50 years",'red')
                 add_friend()
         else:
-            print "Invalid age. Try again with correct details."
+            cprint ("Invalid age. Try again with correct details.",'red')
             add_friend()
     else:
-        print "Invalid name. Try again with correct details."
+        cprint ("Invalid name. Try again with correct details.",red)
         add_friend()
