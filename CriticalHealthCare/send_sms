@@ -1,0 +1,47 @@
+#include<avr/io.h>
+#define F_CPU 16000000UL
+#include<util/delay.h>
+#include<stdio.h>
+#include<iot.h>
+#include<avr/io.h>
+#include <avr/interrupt.h>
+#include <string.h>
+#include <stdlib.h>
+#include <stdbool.h>	/* include USART Header file */
+void Initialization()
+{
+UART1_Init(9600);   // Initialize Serial Port at 9600 baud rate
+}
+
+void SendSms()
+{
+Delay_ms(2000);
+UART1_Write_Text("ATE0rn");   // AT command for Echo OFF
+Delay_ms(1000);
+UART1_Write_Text("ATrn");
+Delay_ms(1000);
+UART1_Write_Text("AT+CMGF = 1rn");
+Delay_ms(1000);
+UART1_Write_Text("AT+CNMI=1,2,0,0,0rn");
+Delay_ms(1000);
+UART1_Write_Text(AT+CMGS=+923326062060/rn);
+delay_ms(500);
+UART1_Write_text(“www.TheEngineeringProjects.com rn”);
+UART1_Write(26);
+}
+
+void main() {
+delay_ms(2000);
+delay_ms(2000);
+Initialization();
+
+SendSms();
+
+do
+{
+
+while(1);
+}
+}
+
+
