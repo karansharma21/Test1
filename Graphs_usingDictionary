@@ -30,8 +30,6 @@ def find_path(graph, start, end, path =[]):
       newpath = find_path(graph, node, end, path) 
       if newpath:  
         return newpath 
-      return None
-     
      
 print(find_path(graph,0,3))
 
