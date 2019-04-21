@@ -8,6 +8,7 @@ perm1 = permutations([1, 2, 3],2)
 for i in list(perm1): 
 	print (i )
 
+print("------------------------------------")
 
 perm = permutations([1, 2, 3],3)
 # Print the obtained permutations of length 3
@@ -16,7 +17,7 @@ for i in list(perm):
 
 
 	
-
+print("------------------------------------")
 # A Python program to print all 
 # combinations of given length 
 from itertools import combinations 
@@ -29,7 +30,7 @@ comb = combinations([1, 2, 3], 2)
 for i in list(comb): 
 	print (i) 
 
-
+print("------------------------------------")
 # A Python program to print all combinations 
 # with an element-to-itself combination is 
 # also included 
@@ -43,5 +44,6 @@ for i in list(comb):
 	print (i )
 
 
+print("------------------------------------")
 
 
