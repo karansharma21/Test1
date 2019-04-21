@@ -1,0 +1,47 @@
+#Preferred Over list
+
+import collections
+deque1=collections.deque([1,2,3])
+print(deque1)
+
+deque1.append(4)
+
+deque1.appendleft(0)
+
+print(deque1)
+
+#to add multiple elements 
+deque1.extend([5,6,4,7])
+
+#it will add mutiple elements but in reverse order
+deque1.extendleft(["Karan","Sharma"])
+
+print(deque1)
+
+deque1.pop()
+
+print(deque1)
+
+deque1.popleft()
+
+print(deque1)
+
+deque1.rotate(-1)
+
+print(deque1)
+
+deque1.rotate(2)
+
+print(deque1)
+
+deque1.reverse()
+
+print(deque1)
+
+print(deque1.count(4))
+
+deque1.remove(4)
+
+print(deque1)
+
+
