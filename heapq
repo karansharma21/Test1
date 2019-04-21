@@ -1,0 +1,28 @@
+#By default heapq in python is MIN heap
+import heapq
+list1=[4,1,2,3,5,6,7]
+heapq.heapify(list1)
+print(list1)
+
+#for MAX heap
+#heapq._heapify_max(list1)
+#print(list1)
+
+#Always remove 1st element of list-can be used in min and max heap both
+print(heapq.heappop(list1))
+print(list1)
+
+#first pop and then push and heapify,increases efficiency
+heapq.heapreplace(list1,1)
+print(list1)
+
+#first 3 largest numbers in list
+print(heapq.nlargest(3,list1))
+
+#first 3 smallest numbers in list
+print(heapq.nsmallest(3,list1))
+
+
+
+
+
