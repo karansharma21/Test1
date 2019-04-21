@@ -1,0 +1,47 @@
+# A Python program to print all permutations 
+from itertools import permutations
+
+# Get all permutations of [1, 2, 3] 
+perm1 = permutations([1, 2, 3],2)
+
+# Print the obtained permutations of length 2
+for i in list(perm1): 
+	print (i )
+
+
+perm = permutations([1, 2, 3],3)
+# Print the obtained permutations of length 3
+for i in list(perm): 
+	print (i) 
+
+
+	
+
+# A Python program to print all 
+# combinations of given length 
+from itertools import combinations 
+
+# Get all combinations of [1, 2, 3] 
+# and length 2 
+comb = combinations([1, 2, 3], 2) 
+
+# Print the obtained combinations 
+for i in list(comb): 
+	print (i) 
+
+
+# A Python program to print all combinations 
+# with an element-to-itself combination is 
+# also included 
+from itertools import combinations_with_replacement 
+
+# Get all combinations of [1, 2, 3] and length 2 
+comb = combinations_with_replacement([1, 2, 3], 2) 
+
+# Print the obtained combinations 
+for i in list(comb): 
+	print (i )
+
+
+
+
