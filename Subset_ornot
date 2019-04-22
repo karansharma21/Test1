@@ -1,0 +1,12 @@
+def fun(arr1,arr2):
+    for ele in arr2:
+        if(ele in arr1):
+            continue
+        else:
+            return ("arr2 is not a subset of arr1")
+            
+    return ("arr2 is a subset of arr1")
+
+arr1=[1,2,3,4,5,6]
+arr2=[3,6,7,1]
+print(fun(arr1,arr2))
