@@ -1,0 +1,17 @@
+import itertools 
+
+def findsubsets(s, n): 
+    lst1=[]
+    while(n!=0):
+        a=list(itertools.combinations(s, n))
+        lst1=lst1+a
+        n=n-1
+    return lst1
+# Driver Code 
+s = {1, 2, 3} 
+n = len(s)
+lst1=[]
+
+print(findsubsets(s, n)) 
+
+
